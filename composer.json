@@ -18,7 +18,6 @@
             "url": "https://github.com/bzimor/yii2-autopost"
         }
     ],
-    "minimum-stability": "stable",
     "require": {
         "yiisoft/yii2": "*",
         "jublonet/codebird-php":"*",
