@@ -2,7 +2,7 @@
 namespace bzimor\autopost\models;
 use Yii;
 use yii\db\ActiveRecord;
-class Autopost extends ActiveRecord{
+class ApiSettings extends ActiveRecord{
     public function rules()
     {
         return [
