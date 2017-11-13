@@ -1,0 +1,21 @@
+{
+    "name": "bzimor/yii2-autopost",
+    "description": "This extension allows you to post messages, photos or videos on famous Social networks such as Telegram, Facebook and Twitter",
+    "type": "yii2-extension",
+    "keywords": ["yii2","extension","telegram","facebook","twitter","autopost"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Boburmirzo Hamraqulov",
+            "email": "bobzimor@gmail.com"
+        }
+    ],
+    "require": {
+        "yiisoft/yii2": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "bzimor\\autopost\\": ""
+        }
+    }
+}
