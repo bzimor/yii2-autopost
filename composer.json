@@ -7,11 +7,27 @@
     "authors": [
         {
             "name": "Boburmirzo Hamraqulov",
-            "email": "bobzimor@gmail.com"
+            "email": "bobzimor@gmail.com",
+            "homepage": "https://github.com/bzimor/yii2-autopost",
+            "role": "Developer"
         }
     ],
+    "repositories":[
+        {
+            "type": "git",
+            "url": "https://github.com/bzimor/yii2-autopost"
+        }
+    ],
+    "minimum-stability": "stable",
     "require": {
-        "yiisoft/yii2": "*"
+        "yiisoft/yii2": "*",
+        "jublonet/codebird-php":"*",
+        "facebook/graph-sdk":"*",
+        "aki/yii2-bot-telegram":"*"
+
+    },
+    "extra": {
+        "bootstrap": "bzimor\\autopost\\Bootstrap"
     },
     "autoload": {
         "psr-4": {
