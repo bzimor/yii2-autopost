@@ -13,6 +13,8 @@ class m171113_153902_api_settings extends Migration
         $this->createTable('{{%api_settings}}', [
             'id' => $this->primaryKey(),
             'type' => $this->string(30)->notNull(),
+            'default_post' => $this->integer(1)->default(2),
+            'bottom_text' => $this->string(100),
             'bot_token' => $this->string(255),
             'channel_id' => $this->string(255),
             'api_id' => $this->string(255),
@@ -22,7 +24,7 @@ class m171113_153902_api_settings extends Migration
             'access_token' => $this->string(255),
             'token_secret' => $this->string(255),
             'update_at' => $this->timestamp()->notNull(),
-            'create_at' => $this->timestamp()->notNull()
+            'status' => $this->integer(1)->default(1)
         ], $tableOptions);
     }
 
