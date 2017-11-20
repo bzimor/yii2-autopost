@@ -21,9 +21,7 @@
     "require": {
         "yiisoft/yii2": "*",
         "jublonet/codebird-php":"*",
-        "facebook/graph-sdk":"*",
-        "aki/yii2-bot-telegram":"*"
-
+        "facebook/graph-sdk":"*"
     },
     "extra": {
         "bootstrap": "bzimor\\autopost\\Bootstrap"

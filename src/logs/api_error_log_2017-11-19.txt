@@ -1,0 +1,1 @@
+19.11.2017 01:31:27 - telegram: {"ok":false,"error_code":400,"description":"Bad Request: message to delete not found"}

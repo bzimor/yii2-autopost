@@ -1,53 +1,40 @@
 $(document).ready(function () {
     $("#sharebtn").on("click", function(){
-        var image = $('#postimage').val();
+        var message = $('#postmessage').val();
+        var link = $('#postlink').val();
+        var photo = $('#postphotourl').val();
+
         $("#sharemsg").html("<span>Кутинг...</span>");
-        if ($("#postmessage").html() != '' || image != ''){
+        if (message != '' || link != ''|| photo != ''){
+            var share = 0;
+            if ($('#tgcheck').is(':checked')) {
+                share += 1;
+            }
+            if ($('#fbcheck').is(':checked')) {
+                share += 2;
+            }
+            if ($('#twcheck').is(':checked')) {
+                share += 4;
+            }
             $.ajax({
                 method : "POST",
-                url : "success",
+                url : "autopost/success",
                 data : {
-                    message: $("#postmessage").html(),
-                    photo:image
+                    share: share,
+                    type: $('input[name=posttype]:checked').val(),
+                    message: message,
+                    link: link,
+                    photo:photo
                 }
             })
             .done(function(msg){
+                $('#sharemsg').removeClass();
+                $('#sharemsg').addClass('alert alert-success');
                 $("#sharemsg").html(msg);
             });
         }
         else {
-            $("#sharemsg").html("<span>Аввал маколани сакланг</span>");
+            $("#sharemsg").html("<span>Avval matn kiriting</span>");
         }
     });
-
-    $(".btn-change").on("click", function() {
-        var apitype = $(this).data('id');
-        api_inputs(apitype);
-        $('#status select').val($('#'+apitype+'-status').data('id'));
-        $('#posttype select').val($('#'+apitype+'-posttype').data('id'));
-        $('#bottomtext').val($('#'+apitype+'-bottomtext').html());
-        if ( apitype == 'tg') {
-            $('#channelid').val($('#tg-channelid').html());
-            $('#bottoken').val($('#tg-bottoken').html());
-        }
-        else if (apitype == 'fb') {
-            $('#pageid').val($('#fb-pageid').html());
-            $('#apiid').val($('#fb-apiid').html());
-            $('#apisecret').val($('#fb-apisecret').html());
-            $('#apiver').val($('#fb-apiver').html());
-            $('#accesstoken').val($('#fb-accesstoken').html());
-        }
-        else {
-            $('#apiid').val($('#tw-apiid').html());
-            $('#apisecret').val($('#tw-apisecret').html());
-            $('#accesstoken').val($('#tw-accesstoken').html());
-            $('#tokensecret').val($('#tw-tokensecret').html());
-        }
-    });
-
-    function api_inputs(apiname) {
-        $('#api-type').val(apiname);
-        $('.toggleable').addClass('hidden');
-        $('.'+apiname).removeClass('hidden');
-    }
 })

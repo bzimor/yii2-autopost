@@ -1,19 +1,12 @@
-.api-edit{
-    visibility: hidden;
-}
-
-tr:hover td div.api-edit{
-    visibility: visible;
-}
 
 hr{
     border-width: 6px !important;
 }
 
-tbody tr td:first-child{
-    width: 200px;
+tbody tr th:first-child{
+    width: 200px !important;
 }
 
-.api-tables{
-    margin: 10px;
+.bold{
+    font-weight: bold;
 }

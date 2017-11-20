@@ -12,36 +12,38 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
-    <?= $form->field($model, 'id')->textInput() ?>
-
-    <?= $form->field($model, 'api_id')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'type')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'default_post')->textInput() ?>
-
+    <div class="row">
+        <div class="col-sm-6">
+            <?= $form->field($model, 'status')->dropDownList(
+                ['Faol emas', 'Faol'])?>
+        </div>
+        <div class="col-sm-6">
+            <?= $form->field($model, 'default_post')->dropDownList(
+                [1=>'Matn', 2=>'Rasm'])?>
+        </div>
+    </div>
     <?= $form->field($model, 'bottom_text')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'bot_token')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'channel_id')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'api_secret')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'api_ver')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'access_token')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'token_secret')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'page_id')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'update_at')->textInput() ?>
-
-    <?= $form->field($model, 'status')->textInput() ?>
+    <?php if ($model->type == 'telegram') {
+        echo $form->field($model, 'bot_token')->textInput(['maxlength' => true]);
+        echo $form->field($model, 'channel_id')->textInput(['maxlength' => true]);
+    }
+    if ($model->type == 'facebook') {
+        echo $form->field($model, 'app_id')->textInput(['maxlength' => true]);
+        echo $form->field($model, 'page_id')->textInput(['maxlength' => true]);
+        echo $form->field($model, 'api_ver')->textInput(['maxlength' => true]);
+    }
+    if ($model->type != 'telegram') {
+        echo $form->field($model, 'api_secret')->textInput(['maxlength' => true]);
+        echo $form->field($model, 'access_token')->textInput(['maxlength' => true]);
+    }
+    if ($model->type == 'twitter') {
+        echo $form->field($model, 'token_secret')->textInput(['maxlength' => true]);
+    }?>
 
     <div class="form-group">
-        <?= Html::submitButton($model->isNewRecord ? Yii::t('app', 'Create') : Yii::t('app', 'Update'), ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+        <?= Html::submitButton(Yii::t('app', 'Yangilash'), ['class' => 'btn btn-primary']) ?>
+        <?= Html::a(Yii::t('app', 'Bekor qilish'), ['setting'], ['class' => 'btn btn-default']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
