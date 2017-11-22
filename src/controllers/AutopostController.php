@@ -87,6 +87,9 @@ class AutopostController extends Controller
         $apimanager = Yii::$app->getModule('autopost')->apimanager;
         if ($request->isPost) {
             $content = array();
+            if ($request->post('title')) {
+                $content['title'] = $request->post('title');
+            }
             if ($request->post('message')) {
                 $content['message'] = $request->post('message');
             }
@@ -103,19 +106,24 @@ class AutopostController extends Controller
             echo $message;
         }
         else {
-            $content['message'] = 'Test 3';
+            $content['message'] = 'hooray';
+            $content['photo_url'] = 'https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png';
             //$content['link'] = 'http://example.com';
             //$post_id = '1680813935262146_1781331375210401';
-            $type = 'text';
+            $type = 'photo';
+            $share = 1;
             $message_id = '888';
-            $tweet_id = '932301601800380416';
+            $tweet_id = '933393874717900800';
             //echo $apimanager->fb_post($content, $type);
             //echo $apimanager->fb_delete($post_id);
-            //echo $apimanager->tg_post($content, $type);
+            echo $apimanager->tg_post($content, $type);
             //echo $apimanager->tg_delete($message_id);
-            echo $apimanager->tw_post($content, $type);
+            //echo $apimanager->tw_post($content, $type);
+            //print_r($apimanager->tw_delete($tweet_id));
             //$this->redirect(['index']);
             //echo 'something wrong';
+            //echo $apimanager->share($content, $type, $share);
+            //echo $apimanager->delete(2);
         }
     }
 

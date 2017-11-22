@@ -38,9 +38,9 @@ class AutopostHistory extends \yii\db\ActiveRecord
     {
         return [
             [['type', 'soft_delete'], 'integer'],
-            [['text'], 'string'],
-            [['tg_msg_id', 'fb_msg_id', 'tw_msg_id'], 'string', 'max' => 35],
-            [['title', 'link', 'photo'], 'string', 'max' => 255],
+            //[['text'], 'string'],
+            //[['tg_msg_id', 'fb_msg_id', 'tw_msg_id'], 'string', 'max' => 35],
+            //[['title', 'link', 'photo'], 'string', 'max' => 255],
         ];
     }
 

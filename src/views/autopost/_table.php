@@ -25,6 +25,13 @@ use yii\grid\GridView;
                             $model->title.' '.$model->text.' '.$model->link, 32, '...'
                         ), ['index', 'id'=>$model->id]);
                 },
+                'headerOptions' =>[
+                    'style' => 'text-align:center'
+                ],
+                'contentOptions' =>[
+                    'style' => 'text-align:left'
+                ],
+
             ],
             [
                 'attribute' => 'type',

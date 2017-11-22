@@ -40,32 +40,44 @@ use Facebook\Facebook;
         $apis = $this->index_to_assoc($items);
         $post_infos = array();
         $issent = FALSE;
-        if ($share && 42 % $share == 0 && $apis['telegram']->status == 1) {
-            if ($tgresponse = $apimanager->tg_post($content, $type)) {
+        $text = '';
+        if ($share && $share % 2 != 0 && $apis['telegram']->status == 1) {
+            if ($tgresponse = $this->tg_post($content, $type)) {
                 $post_infos['tg_msg_id'] =$tgresponse;
                 $issent = TRUE;
             }
+            else{$text.='Telegram ';}
         }
-        if ($share && $share % 2 != 0 && $apis['facebook']->status == 1) {
-            if($fbresponse = $apimanager->fb_post($content, $type)){
+        if ($share && $share != 1 && 42 % $share == 0 && $apis['facebook']->status == 1) {
+            if($fbresponse = $this->fb_post($content, $type)){
                 $post_infos['fb_msg_id'] =$fbresponse;
                 $issent = TRUE;
             }
+            else{$text.='Facebook ';}
         }
         if ($share && $share >3 && $apis['twitter']->status == 1) {
-            if($twresponse = $apimanager->tw_post($content, $type)){
+            if($twresponse = $this->tw_post($content, $type)){
                 $post_infos['tw_msg_id'] =$twresponse;
                 $issent = TRUE;
             }
+            else{$text.='Twitter ';}
         }
         if ($issent) {
             $this->save_history($post_infos, $content, $type);
         }
+        if ($text) {
+            $text.='ga yuborilmadi';
+            return $text;
+        }
+        else {
+            return 'Xabar muvafaqqiyatli yuborildi';
+        }
+
     }
 
     function delete($id)
     {
-        $item =AutopostHistory::findOne($post_id);
+        $item =AutopostHistory::findOne($id);
         $fb = $tg = $tw = FALSE;
         if ($this->tg_delete($item->tg_msg_id)) {
             $tg = TRUE;
@@ -117,7 +129,7 @@ use Facebook\Facebook;
             $model->type = 2;
         }
         if (isset($content['title'])) {
-            $model->text = $content['title'];
+            $model->title = $content['title'];
         }
         if (isset($content['message'])) {
             $model->text = $content['message'];
@@ -315,7 +327,7 @@ use Facebook\Facebook;
             $cb->setToken($tw->access_token, $tw->token_secret);
 
             $params = array('id' => $post_id);
-            $reply = $cb->statuses_destroy($params);
+            $reply = $cb->statuses_destroy_ID($params);
         }
         catch(Exception $e) {
             if ($attach) {

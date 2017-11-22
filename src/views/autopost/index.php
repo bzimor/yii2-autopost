@@ -47,21 +47,21 @@ use yii\helpers\Html;
                         <div class="form-group">
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" id="tg-check" <?=(! isset($data)||$data->tg_msg_id)?'checked':''?>>
+                                    <input type="checkbox" id="tgcheck" <?=(! isset($data)||$data->tg_msg_id)?'checked':''?>>
                                     Telegram
                                 </label>
                             </div>
 
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" id="fb-check" <?=(isset($data)&&$data->fb_msg_id)?'checked':''?>>
+                                    <input type="checkbox" id="fbcheck" <?=(isset($data)&&$data->fb_msg_id)?'checked':''?>>
                                     Facebook
                                 </label>
                             </div>
 
                             <div class="checkbox">
                                 <label>
-                                    <input type="checkbox" id="tw-check" <?=(isset($data)&&$data->tw_msg_id)?'checked':''?>>
+                                    <input type="checkbox" id="twcheck" <?=(isset($data)&&$data->tw_msg_id)?'checked':''?>>
                                     Twitter
                                 </label>
                             </div>
@@ -92,14 +92,14 @@ use yii\helpers\Html;
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary" type="button" id="sharebtn"><?=(isset($data))?'Qayta yuborish':'Xabar yuborish'?></button>
-                    <?php if(isset($data) && $data->soft_delete != 1): ?>
+                    <?php if(isset($data)): ?>
                         <?= Html::a(Yii::t('app', 'Yangi xabar'), ['index'], ['class' => 'btn btn-success']) ?>
                         <?php if($data->soft_delete != 1): ?>
                             <?= Html::a(Yii::t('app', 'O\'chirish'), ['delete', 'id'=>$data->id], ['class' => 'btn btn-warning']) ?>
                         <?php endif; ?>
                     <?php endif; ?>
                 </div>
-                <div  class="alert alert-success" id="sharemsg">
+                <div id="sharemsg">
 
                 </div>
             </form>
