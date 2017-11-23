@@ -1,0 +1,9 @@
+*************
+Imkoniyatlari
+*************
+
+- Sayt orqali Telegram, Facebook hamda Twitter dagi sahifa va kanalga xabarlar chop etish
+- Yuborilgan xabarlar arxivini ko'rish, sayt orqali ularni o'chirish
+- Sahifa orqali sozlamalarni kiritish
+- Yii2 freymvorkida yaratilgan loyihani o'zgartirmagan xolda kengaytmani o'rnatish
+- Bu kengaytmaning o'z url manzili, sozlamalari va sahifalari mavjud

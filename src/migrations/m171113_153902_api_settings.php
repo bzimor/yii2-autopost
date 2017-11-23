@@ -25,11 +25,15 @@ class m171113_153902_api_settings extends Migration
             'access_token' => $this->string(250),
             'token_secret' => $this->string(50),
             'updated_at' => $this->integer(11),
-            'status' => $this->integer(1)->default(1)
+            'status' => $this->integer(1)->defaultValue(1)
         ], $tableOptions);
         $this->insert('{{%api_settings}}',
-            ['id' => '1', 'type' => 'telegram'],
-            ['id' => '2', 'type' => 'facebook'],
+            ['id' => '1', 'type' => 'telegram']
+        );
+        $this->insert('{{%api_settings}}',
+            ['id' => '2', 'type' => 'facebook']
+        );
+        $this->insert('{{%api_settings}}',
             ['id' => '3', 'type' => 'twitter']
         );
     }
