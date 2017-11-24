@@ -1,0 +1,316 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="uz" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="uz" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Facebook sozlamalari &mdash; Yii2 Autopost 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Yii2 Autopost 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Twitter sozlamalari" href="twitter.html"/>
+        <link rel="prev" title="Telegram sozlamalari" href="telegram.html"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="index.html" class="icon icon-home"> Yii2 Autopost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Mundarija:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="installing.html">Kengaytmani mavjud loyihaga o'rnatish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="settings.html">Kengaytmani sozlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="telegram.html">Telegram sozlamalari</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Facebook sozlamalari</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#facebook-da-dastur-yaratuvchi-akkauntini-faollashtirish">Facebook da dastur yaratuvchi akkauntini faollashtirish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#facebook-da-dastur-yaratish-va-dastur-ma-lumotlarini-olish">Facebook da dastur yaratish va dastur ma'lumotlarini olish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#facebook-dasturi-uchun-access-token-olish">Facebook dasturi uchun Access token olish</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="twitter.html">Twitter sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using.html">Kengaytmadan foydalanish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Kengaytmada xatoliklarni tekshirish</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Yii2 Autopost</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Facebook sozlamalari</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/facebook.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="facebook-sozlamalari">
+<h1>Facebook sozlamalari<a class="headerlink" href="#facebook-sozlamalari" title="Permalink to this headline">¶</a></h1>
+<p>Facebook ijtimoiy tarmog'idagi sahifangizga kengaytma orqali xabar yuborilishini ta'minlash uchun siz <strong>o'sha sahifa admini</strong> bo'lishingiz va quyidagilarni bajarishingiz kerak.</p>
+<div class="section" id="facebook-da-dastur-yaratuvchi-akkauntini-faollashtirish">
+<h2>Facebook da dastur yaratuvchi akkauntini faollashtirish<a class="headerlink" href="#facebook-da-dastur-yaratuvchi-akkauntini-faollashtirish" title="Permalink to this headline">¶</a></h2>
+<p>Facebook sahifasiga xabar chop etishda foydalaniladigan dastur yaratish uchun dastur yaratuvchi akkauntini faollashtirishingiz kerak bo'ladi. Buning uchun <a class="reference external" href="https://developers.facebook.com/docs/pages/getting-started#developer-account">https://developers.facebook.com/docs/pages/getting-started#developer-account</a>  manziliga kiring va <strong>Создать аккаунт разработчика</strong> tugmasini bosing:</p>
+<img alt="_images/fb-1.png" src="_images/fb-1.png" />
+</div>
+<div class="section" id="facebook-da-dastur-yaratish-va-dastur-ma-lumotlarini-olish">
+<h2>Facebook da dastur yaratish va dastur ma'lumotlarini olish<a class="headerlink" href="#facebook-da-dastur-yaratish-va-dastur-ma-lumotlarini-olish" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Dastur yaratuvchi akkaunti yaratilgandan so'ng sizga dastur yaratish oynasi ochiladi, oynadan <strong>Создать ID приложения</strong> tugmasini bosing:</li>
+</ol>
+<img alt="_images/fb-2.png" src="_images/fb-2.png" />
+<ol class="arabic simple" start="2">
+<li>Dastur nomini va pochta manzilingizni kiriting:</li>
+</ol>
+<img alt="_images/fb-3.png" src="_images/fb-3.png" />
+<ol class="arabic simple" start="3">
+<li>Dastur yaratilgandan so'ng, chap tarafdan <strong>Панель</strong> bo'limiga kirib, <code class="docutils literal"><span class="pre">api</span> <span class="pre">versiyasi</span></code> (1), <code class="docutils literal"><span class="pre">App</span> <span class="pre">ID</span></code> (2) va <code class="docutils literal"><span class="pre">Api</span> <span class="pre">secret</span></code> (3) larni ko'chirib oling:</li>
+</ol>
+<img alt="_images/fb-4.png" src="_images/fb-4.png" />
+<img alt="_images/fb-5.png" src="_images/fb-5.png" />
+</div>
+<div class="section" id="facebook-dasturi-uchun-access-token-olish">
+<h2>Facebook dasturi uchun Access token olish<a class="headerlink" href="#facebook-dasturi-uchun-access-token-olish" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Shundan so'ng <a class="reference external" href="https://developers.facebook.com/tools/explorer">https://developers.facebook.com/tools/explorer</a> manziliga kirib, qizil bilan belgilangan joyni bosib, ro'yxatdan dasturingizni tanlang:</li>
+</ol>
+<img alt="_images/fb-6.png" src="_images/fb-6.png" />
+<ol class="arabic simple" start="2">
+<li>Rasmda ko'rsatilgan <strong>Получить маркер</strong> tugmasini bosib, eng quyidan <strong>Получит маркер доступа пользователя</strong> ni tanlang va ochilgan oynadan qizil bilan belgilanganlarini tanlab, <strong>Получить маркер доступа</strong> ni bosing:</li>
+</ol>
+<img alt="_images/fb-6a.png" src="_images/fb-6a.png" />
+<img alt="_images/fb-7.png" src="_images/fb-7.png" />
+<ol class="arabic simple" start="3">
+<li>Kichik bir oyna ochilgandan so'ng, davom etish, so'ngra ok tugmasini bosing:</li>
+</ol>
+<img alt="_images/fb-8.png" src="_images/fb-8.png" />
+<ol class="arabic simple" start="4">
+<li>Belgilangan joydan tokenni ko'chirib oling:</li>
+</ol>
+<img alt="_images/fb-9.png" src="_images/fb-9.png" />
+<ol class="arabic" start="5">
+<li><p class="first">Ko'chirib olingan token <strong>qisqa muddatli token</strong> hisoblanadi. Uni uzoq muddatli tokenga almashtirish uchun dastur Api secret ini hamda dastur ID sini quyidagi linkga qo'yib, o'sha linkni brauzerda oching:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>https://graph.facebook.com/oauth/access_token?client_id=&lt;&lt;Dasturingiz ID si&gt;&gt;&amp;client_secret=&lt;&lt;Dasturingiz API Secreti&gt;&gt;&amp;grant_type=fb_exchange_token&amp;fb_exchange_token=&lt;&lt;Dasturingiz Access tokeni&gt;&gt;
+</pre></div>
+</div>
+</li>
+</ol>
+<img alt="_images/fb-10.png" src="_images/fb-10.png" />
+<ol class="arabic" start="6">
+<li><p class="first">Natijada siz <strong>uzoq muddatli token</strong> ga ega bo'lasiz. Bu tokenni <strong>hech qachon eskirmaydigan token</strong> ga almashtirish uchun quyidagi linkga uzoq muddatli token ni qo'yib brauzeringizda oching:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>https://graph.facebook.com/me/accounts?access_token=&lt;&lt;uzoq muddatli token ingiz&gt;&gt;
+</pre></div>
+</div>
+</li>
+<li><p class="first">Va nihoyat siz <strong>hech qachon eskirmaydigan token</strong> ga ega bo'ldingiz. Bu yerdan <code class="docutils literal"><span class="pre">Sahifa</span> <span class="pre">ID</span></code> sini ham olish mumkin:</p>
+</li>
+</ol>
+<img alt="_images/fb-11.png" src="_images/fb-11.png" />
+<ol class="arabic simple" start="8">
+<li>Agar yuqoridagi holatda <code class="docutils literal"><span class="pre">sahifa</span> <span class="pre">ID</span></code> siga ega bo'lmasangiz, Facebookdagi sahifangiz manziliga kirib, <strong>Информация</strong> bo'limidan olish mumkin:</li>
+</ol>
+<img alt="_images/fb-12.png" src="_images/fb-12.png" />
+<ol class="arabic simple" start="9">
+<li>Olingan ma'lumotlarni kengaytmadagi Facebook sozlamalariga yozib, saqlab qo'ying.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="twitter.html" class="btn btn-neutral float-right" title="Twitter sozlamalari" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="telegram.html" class="btn btn-neutral" title="Telegram sozlamalari" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2017, Boburmirzo Hamraqulov.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.0.0',
+            LANGUAGE:'uz',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

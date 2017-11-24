@@ -26,3 +26,8 @@ Imkoniyatlari
 
    installing
    settings
+   telegram
+   facebook
+   twitter
+   using
+   debugging

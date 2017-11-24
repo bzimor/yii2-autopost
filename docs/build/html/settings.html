@@ -30,12 +30,15 @@
   
 
   
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  
 
   
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Yii2 Autopost 1.0.0 documentation" href="index.html"/>
+        <link rel="next" title="Telegram sozlamalari" href="telegram.html"/>
         <link rel="prev" title="Kengaytmani mavjud loyihaga o&#39;rnatish" href="installing.html"/> 
 
   
@@ -92,21 +95,12 @@
               <p class="caption"><span class="caption-text">Mundarija:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="installing.html">Kengaytmani mavjud loyihaga o'rnatish</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Kengaytmani sozlash</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ijtimoiy-tarmoq-api-ma-lumotlarini-olish-va-sozlash">Ijtimoiy tarmoq API ma'lumotlarini olish va sozlash</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#telegram">Telegram</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#telegramda-bot-yangi-bot-yaratish">Telegramda bot yangi bot yaratish</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#kanal-id-sini-aniqlash">Kanal id sini aniqlash</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="#facebook">Facebook</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#facebook-da-dastur-yaratuvchi-akkountini-faollashtirish">Facebook da dastur yaratuvchi akkountini faollashtirish</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Kengaytmani sozlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="telegram.html">Telegram sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="facebook.html">Facebook sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="twitter.html">Twitter sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="using.html">Kengaytmadan foydalanish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Kengaytmada xatoliklarni tekshirish</a></li>
 </ul>
 
             
@@ -173,70 +167,9 @@
   <div class="section" id="kengaytmani-sozlash">
 <h1>Kengaytmani sozlash<a class="headerlink" href="#kengaytmani-sozlash" title="Permalink to this headline">¶</a></h1>
 <p>Xabarlarni ijtimoiy tarmoqdagi kanal va sahifalarga yuborish uchun avval sozlash menyusi orqali kirib, so'ralayotgan API ma'lumotlarni to'ldirishingiz kerak.</p>
-<div class="section" id="ijtimoiy-tarmoq-api-ma-lumotlarini-olish-va-sozlash">
-<h2>Ijtimoiy tarmoq API ma'lumotlarini olish va sozlash<a class="headerlink" href="#ijtimoiy-tarmoq-api-ma-lumotlarini-olish-va-sozlash" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="telegram">
-<h3>Telegram<a class="headerlink" href="#telegram" title="Permalink to this headline">¶</a></h3>
-<p>Telegram tarmog'ida kanalingizga kengaytma orqali xabar yuborilishini ta'minlash uchun, avvalo telegramda bot yaratib, yaratilgan botni kanalingizga admin sifatida qo'shishingiz lozim</p>
-<div class="section" id="telegramda-bot-yangi-bot-yaratish">
-<h4>Telegramda bot yangi bot yaratish<a class="headerlink" href="#telegramda-bot-yangi-bot-yaratish" title="Permalink to this headline">¶</a></h4>
-<p>Telegram da bot yaratish uchun quyidagilarni bajaring:</p>
-<ol class="arabic simple">
-<li>Telegram qidiruv joyiga <code class="docutils literal"><span class="pre">&#64;botfather</span></code> deb yozib(1), izlash tugmasini bosing va birinchi chiqqan natijaga kirib <code class="docutils literal"><span class="pre">start</span></code> tugmasini bosing(2):</li>
-</ol>
-<img alt="_images/Telegram_bot_1.png" src="_images/Telegram_bot_1.png" />
-<ol class="arabic simple">
-<li>Buyruqlar ichidan <code class="docutils literal"><span class="pre">/newbot</span></code> buyrug'ini tanlang yoki  o'zingiz <code class="docutils literal"><span class="pre">/newbot</span></code> deb buyruq yuboring:</li>
-</ol>
-<img alt="_images/Telegram_bot_2.png" src="_images/Telegram_bot_2.png" />
-<ol class="arabic simple">
-<li>So'ngra, so'rovga asosan yaratilayotgan yangi bot ismini (1), botning foydalanuv nomini (2) kiriting, shundan so'ng sizga Bot token (3) taqdim qilinadi. Botning foydalanuv nomi takrorlanmagan hamda oxiri &quot;bot&quot; yoki &quot;_bot&quot; so'zi bilan tugashi kerak:</li>
-</ol>
-<img alt="_images/Telegram_bot_3.png" src="_images/Telegram_bot_3.png" />
-</div>
-<div class="section" id="kanal-id-sini-aniqlash">
-<h4>Kanal id sini aniqlash<a class="headerlink" href="#kanal-id-sini-aniqlash" title="Permalink to this headline">¶</a></h4>
-<ol class="arabic simple">
-<li>Kanal id si o'rniga <code class="docutils literal"><span class="pre">&#64;&lt;&lt;kanal_nomi&gt;&gt;</span></code> ni ham ishlatish mumkin. Kanal nomi bu yerda kanal linkining oxirgi qismi: <code class="docutils literal"><span class="pre">https://</span> <span class="pre">t.me/</span> <span class="pre">&lt;&lt;kanal_nomi&gt;&gt;</span></code></li>
-</ol>
-<img alt="_images/Telegram_bot_4.png" src="_images/Telegram_bot_4.png" />
-<p>Agar kanal ochiq bo'lmasa (private), u holda &#64;getidsbot botini izlab toping, botga kirib <code class="docutils literal"><span class="pre">/start</span></code> ni bosing va kanalingizdagi biror xabarni &quot;forward&quot; qilib botga yuborsangiz, sizning kanalingiz id sini chiqarib beradi.</p>
-<img alt="_images/Telegram_bot_5.png" src="_images/Telegram_bot_5.png" />
-<p>Yaratilgan botni kanalingizga admin sifatida qo'shing hamda olingan ma'lumotlarni kengaytma sozlamalariga kiriting.</p>
-</div>
-</div>
-<div class="section" id="facebook">
-<h3>Facebook<a class="headerlink" href="#facebook" title="Permalink to this headline">¶</a></h3>
-<p>Facebook ijtimoiy tarmog'idagi sahifangizga kengaytma orqali xabar yuborilishini ta'minlash uchun quyidagilarni bajaring.</p>
-<div class="section" id="facebook-da-dastur-yaratuvchi-akkountini-faollashtirish">
-<h4>Facebook da dastur yaratuvchi akkountini faollashtirish<a class="headerlink" href="#facebook-da-dastur-yaratuvchi-akkountini-faollashtirish" title="Permalink to this headline">¶</a></h4>
-<p>Facebook sahifasiga xabar chop etishda foydalaniladigan dastur yaratish uchun dastur yaratuvchi akkountini faollashtirishingiz kerak bo'ladi. Buning uchun quyidagi manzilga kiring va rasmda belgilangan tugmani bosing:</p>
-<p><a class="reference external" href="https://developers.facebook.com/docs/pages/getting-started#developer-account">https://developers.facebook.com/docs/pages/getting-started#developer-account</a></p>
-<img alt="_images/fb-1.png" src="_images/fb-1.png" />
-<img alt="_images/fb-2.png" src="_images/fb-2.png" />
-<p>Dastur nomini va pochta manzilingizni kiriting:</p>
-<img alt="_images/fb-3.png" src="_images/fb-3.png" />
-<p>Dastur yaratilgandan so'ng quyidagi manzilga kirib, qizil bilan belgilangan joyni bosib, ro'yxatdan dasturingizni tanlang:</p>
-<img alt="_images/fb-4.png" src="_images/fb-4.png" />
-<p>Rasmda ko'rsatilgan <strong>Получит маркер</strong> tugmasini bosib, eng quyidan <strong>Получит маркер доступа к Странице</strong> ni tanlang:</p>
-<img alt="_images/fb-5.png" src="_images/fb-5.png" />
-<p>Kichik bir oyna ochilgandan so'ng, davom etish, so'ngra ok tugmasini bosing:</p>
-<img alt="_images/fb-6.png" src="_images/fb-6.png" />
-<p>So'ng yana <strong>Получит маркер</strong> tugmasini bosib, eng quyidan dasturingizni tanlaysiz:</p>
-<img alt="_images/fb-7.png" src="_images/fb-7.png" />
-<p>Yana o'sha menyudan rasmda belgilanga tugmani bosing hamda kichik oynadan ok ni tanlang:</p>
-<img alt="_images/fb-8.png" src="_images/fb-8.png" />
-<p>Belgilangan joydan tokenni ko'chirib oling</p>
-<img alt="_images/fb-9.png" src="_images/fb-9.png" />
-<p>Ko'chirib olingan tokenni hamda dastur ID sini quyidagi linkga qo'yib, o'sha linkni brauzerda oching:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span>https://graph.facebook.com/oauth/access_token?client_id=**&lt;&lt;Dasturingiz ID si&gt;&gt;**&amp;client_secret=&lt;your FB App secret&gt;&amp;grant_type=fb_exchange_token&amp;fb_exchange_token=**&lt;&lt;ko&#39;chirib olingan access token&gt;&gt;**
-</pre></div>
-</div>
-<p>Dasturingiz ID sini esa quyida keltirilgan joydan olishingiz mumkin:</p>
-<img alt="_images/fb-10.png" src="_images/fb-10.png" />
-</div>
-</div>
-</div>
+<p>Buning uchun <code class="docutils literal"><span class="pre">http://&lt;&lt;Saytingiz-nomi&gt;&gt;/autopost/setting</span></code> manzili orqali har bir tarmoq bo'limidan <strong>O'zgartirish</strong> tugmasini bosib, o'sha tarmoq sozlamalirini kiritish sahifasiga kiriladi.</p>
+<img alt="_images/autopost-1.png" src="_images/autopost-1.png" />
+<img alt="_images/autopost-2.png" src="_images/autopost-2.png" />
 </div>
 
 
@@ -248,6 +181,8 @@
           <footer>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="telegram.html" class="btn btn-neutral float-right" title="Telegram sozlamalari" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="installing.html" class="btn btn-neutral" title="Kengaytmani mavjud loyihaga o&#39;rnatish" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

@@ -2,7 +2,7 @@
 Kengaytmani mavjud loyihaga o'rnatish
 *************************************
 
-#. Kengaytmani o'rnatish uchun loyihaning composer.json fayli 'require' bo'limiga ``"bzimor/yii2-autopost": "dev-master"`` qatorini qo'shing yoki quyidagi buyruqni ishga tushiring::
+#. Kengaytmani o'rnatish uchun loyihaning ``composer.json`` fayli ``'require'`` bo'limiga ``"bzimor/yii2-autopost": "dev-master"`` qatorini qo'shing yoki quyidagi buyruqni ishga tushiring::
 
 
     composer require bzimor/yii2-autopost:dev-master

@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Imkoniyatlari &mdash; Yii2 Autopost 1.0.0 documentation</title>
+  <title>Twitter sozlamalari &mdash; Yii2 Autopost 1.0.0 documentation</title>
   
 
   
@@ -30,14 +30,16 @@
   
 
   
+    <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  
 
   
         <link rel="index" title="Index"
               href="genindex.html"/>
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="Yii2 Autopost 1.0.0 documentation" href="index.html"/>
-        <link rel="next" title="Kengaytmani mavjud loyihaga o&#39;rnatish" href="installing.html"/>
-        <link rel="prev" title="Yii2 Autopost kengaytmasi foydalanish yo&#39;riqnomasi" href="index.html"/> 
+        <link rel="next" title="Kengaytmadan foydalanish" href="using.html"/>
+        <link rel="prev" title="Facebook sozlamalari" href="facebook.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -92,9 +94,17 @@
             
               <p class="caption"><span class="caption-text">Mundarija:</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Imkoniyatlari</a></li>
 <li class="toctree-l1"><a class="reference internal" href="installing.html">Kengaytmani mavjud loyihaga o'rnatish</a></li>
 <li class="toctree-l1"><a class="reference internal" href="settings.html">Kengaytmani sozlash</a></li>
+<li class="toctree-l1"><a class="reference internal" href="telegram.html">Telegram sozlamalari</a></li>
+<li class="toctree-l1"><a class="reference internal" href="facebook.html">Facebook sozlamalari</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Twitter sozlamalari</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#twitter-da-dastur-yaratish">Twitter da dastur yaratish</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dastur-ma-lumotlarini-olish">Dastur ma'lumotlarini olish</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="using.html">Kengaytmadan foydalanish</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debugging.html">Kengaytmada xatoliklarni tekshirish</a></li>
 </ul>
 
             
@@ -139,13 +149,13 @@
     
       <li><a href="index.html">Docs</a> &raquo;</li>
         
-      <li>Imkoniyatlari</li>
+      <li>Twitter sozlamalari</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/features.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/twitter.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -158,15 +168,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="imkoniyatlari">
-<h1>Imkoniyatlari<a class="headerlink" href="#imkoniyatlari" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li>Sayt orqali Telegram, Facebook hamda Twitter dagi sahifa va kanalga xabarlar chop etish</li>
-<li>Yuborilgan xabarlar arxivini ko'rish, sayt orqali ularni o'chirish</li>
-<li>Sahifa orqali sozlamalarni kiritish</li>
-<li>Yii2 freymvorkida yaratilgan loyihani o'zgartirmagan xolda kengaytmani o'rnatish</li>
-<li>Bu kengaytmaning o'z url manzili, sozlamalari va sahifalari mavjud</li>
-</ul>
+  <div class="section" id="twitter-sozlamalari">
+<h1>Twitter sozlamalari<a class="headerlink" href="#twitter-sozlamalari" title="Permalink to this headline">¶</a></h1>
+<p>Twitter ijtimoiy tarmog'idagi sahifangizga kengaytma orqali xabar yuborilishini ta'minlash uchun quyidagilarni bajaring.</p>
+<div class="section" id="twitter-da-dastur-yaratish">
+<h2>Twitter da dastur yaratish<a class="headerlink" href="#twitter-da-dastur-yaratish" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Twitter da dastur yaratish uchun <a class="reference external" href="https://apps.twitter.com/">https://apps.twitter.com/</a> manziliga kiring va <code class="docutils literal"><span class="pre">Create</span> <span class="pre">New</span> <span class="pre">App</span></code> tugmasini bosing:</li>
+</ol>
+<img alt="_images/tw-1.png" src="_images/tw-1.png" />
+<ol class="arabic simple" start="2">
+<li>So'ngra dastur nomi(1), dastur haqida ma'lumot(2), vebsayt(3) qatorlarini to'ldiring, shartlarga rozilik belgisini qo'yib, <code class="docutils literal"><span class="pre">Create</span> <span class="pre">your</span> <span class="pre">Twitter</span> <span class="pre">application</span></code> tugmasini bosing:</li>
+</ol>
+<img alt="_images/tw-2.png" src="_images/tw-2.png" />
+<img alt="_images/tw-3.png" src="_images/tw-3.png" />
+</div>
+<div class="section" id="dastur-ma-lumotlarini-olish">
+<h2>Dastur ma'lumotlarini olish<a class="headerlink" href="#dastur-ma-lumotlarini-olish" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Ochilgan oynadan <strong>Keys and Access Tokens</strong> bo'limiga o'ting. Bu yerdan siz <code class="docutils literal"><span class="pre">Api</span> <span class="pre">key</span></code> (1) hamda <code class="docutils literal"><span class="pre">Api</span> <span class="pre">secret</span></code> (2) larni olishingiz mumkin:</li>
+</ol>
+<img alt="_images/tw-4.png" src="_images/tw-4.png" />
+<ol class="arabic simple" start="2">
+<li>Shu sahifaning pastiga tushib, <strong>Create my access token</strong> tugmasini bosing, shunda sizga <code class="docutils literal"><span class="pre">Access</span> <span class="pre">token</span></code> (3) va <code class="docutils literal"><span class="pre">Token</span> <span class="pre">secret</span></code> (4) taqdim qilinadi:</li>
+</ol>
+<img alt="_images/tw-5.png" src="_images/tw-5.png" />
+<img alt="_images/tw-6.png" src="_images/tw-6.png" />
+<ol class="arabic simple" start="3">
+<li>Olingan ma'lumotlarni kengaytma sozlamalaridagi kerakli qatorlarga qo'ying.</li>
+</ol>
+</div>
 </div>
 
 
@@ -179,10 +210,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="installing.html" class="btn btn-neutral float-right" title="Kengaytmani mavjud loyihaga o&#39;rnatish" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="using.html" class="btn btn-neutral float-right" title="Kengaytmadan foydalanish" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="index.html" class="btn btn-neutral" title="Yii2 Autopost kengaytmasi foydalanish yo&#39;riqnomasi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="facebook.html" class="btn btn-neutral" title="Facebook sozlamalari" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

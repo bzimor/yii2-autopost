@@ -31,7 +31,7 @@ use Facebook\Facebook;
     * );
     */
 
-    function share(array $content, $type, $share=7)
+    function share(array $content, $share=7, $type='')
     {
         if (! $items = ApiSettings::find()->all()) {
             Yii::$app->session->setFlash('api_error', 'Bazada ma\'lumotlar mavjud emas');
@@ -143,7 +143,7 @@ use Facebook\Facebook;
         $model->save();
     }
 
-    function fb_post(array $content, $type='')
+    function fb_post(array $content, $type)
     {
         $fbk = ApiSettings::find()->where(['type' => 'facebook'])->one();
         $fb = new Facebook([
@@ -199,7 +199,7 @@ use Facebook\Facebook;
 
     }
 
-    function tg_post(array $content, $type='')
+    function tg_post(array $content, $type)
     {
         $tg = ApiSettings::find()->where(['type' => 'telegram'])->one();
         if ($type == '') {
@@ -255,7 +255,7 @@ use Facebook\Facebook;
 
     }
 
-    function tw_post(array $content, $type='') {
+    function tw_post(array $content, $type) {
         require_once(__DIR__.'/../../../jublonet/codebird-php/src/codebird.php');
         $tw = ApiSettings::find()->where(['type' => 'twitter'])->one();
         if (! $tw) {
