@@ -91,7 +91,7 @@ use yii\helpers\Html;
                     </div>
                 </div>
                 <div class="form-group">
-                    <button class="btn btn-primary" type="button" id="sharebtn"><?=(isset($data))?'Qayta yuborish':'Xabar yuborish'?></button>
+                    <button class="btn btn-primary" type="button" id="sharebtn" <?php echo (! $settings)?'disabled':''; ?>><?=(isset($data))?'Qayta yuborish':'Xabar yuborish'?></button>
                     <?php if(isset($data)): ?>
                         <?= Html::a(Yii::t('app', 'Yangi xabar'), ['index'], ['class' => 'btn btn-success']) ?>
                         <?php if($data->soft_delete != 1): ?>

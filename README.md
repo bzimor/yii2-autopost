@@ -10,13 +10,13 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require --prefer-dist bzimor/yii2-autopost "*"
+php composer.phar require bzimor/yii2-autopost:dev-master
 ```
 
 or add
 
 ```
-"bzimor/yii2-autopost": "*"
+"bzimor/yii2-autopost": "dev-master"
 ```
 
 to the require section of your `composer.json` file.
@@ -25,7 +25,6 @@ to the require section of your `composer.json` file.
 Usage
 -----
 
-Once the extension is installed, simply use it in your code by  :
+Once the extension is installed, simply write `http://<<YOUR-SITE>>/autopost` on adressbar and press enter.
 
-```php
-<?= \bzimor\autopost\AutoloadExample::widget(); ?>```
+
