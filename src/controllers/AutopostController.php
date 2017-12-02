@@ -101,7 +101,7 @@ class AutopostController extends Controller
                 $content['photo_url'] = $request->post('photo');
             }
             $share = $request->post('share');
-            if (! $message = $apimanager->share($content, $request->post('type'), $share)) {
+            if (! $message = $apimanager->share($content, $share, $request->post('type'))) {
                 $message = Yii::$app->session->getFlash('api_error');
             }
             echo $message;

@@ -43,7 +43,7 @@ CREATE TABLE `api_settings` (
   `access_token` varchar(250) DEFAULT NULL,
   `token_secret` varchar(50) DEFAULT NULL,
   `updated_at` int(11) DEFAULT NULL,
-  `status` int(1) DEFAULT '1'
+  `status` int(1) DEFAULT '0'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
