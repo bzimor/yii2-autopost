@@ -33,8 +33,11 @@ use Facebook\Facebook;
             Yii::$app->session->setFlash('api_error', 'Bazada ma\'lumotlar mavjud emas');
             return FALSE;
         }
-        $types = ['default' => 0, 'text' => 1, 'photo' => 2];
-        if (! $infos['type'] = $this->array_item($types, $type)){return FALSE;}
+        $types = array('default' => 3, 'text' => 1, 'photo' => 2);
+        if (! $infos['type'] = $this->array_item($types, $type)){
+           Yii::$app->session->setFlash('api_error', 'Xabar turi xato');
+           return FALSE;
+        }
         $apis = $this->index_to_assoc($items);
         $issent = FALSE;
         $text = '';
@@ -61,7 +64,10 @@ use Facebook\Facebook;
         }
         if ($issent) {$this->save_history($infos, $content);}
         if ($text) {
-            $text.='ga yuborilmadi';
+            $text.="ga yuborilmadi<br>";
+            $text.=Yii::$app->session->getFlash('tg_api_error');
+            $text.=Yii::$app->session->getFlash('fb_api_error');
+            $text.=Yii::$app->session->getFlash('tw_api_error');
             return $text;
         }
         else {
@@ -84,9 +90,13 @@ use Facebook\Facebook;
         if (! $item->tg_msg_id && ! $item->fb_msg_id && ! $item->tw_msg_id) {
             $item->soft_delete = 1;
             $item->save();
+            return TRUE;
         }
         else{
-            $text = 'Ba\'zi xabarlar o\'chirilmay qoldi';
+            $text = "Ba'zi xabarlar o'chirilmay qoldi\n";
+            $text.=Yii::$app->session->getFlash('tg_api_error');
+            $text.=Yii::$app->session->getFlash('fb_api_error');
+            $text.=Yii::$app->session->getFlash('tw_api_error');
             Yii::$app->session->setFlash('api_error', $text);
             $item->save();
             return FALSE;
@@ -124,12 +134,15 @@ use Facebook\Facebook;
     function fb_post(array $content, $type)
     {
         $fbk = ApiSettings::find()->where(['type' => 'facebook'])->one();
+        if (! $check = $this->checkapis($fbk, 'fb')) {
+            return $check;
+        }
         $fb = new Facebook([
          'app_id' => $fbk->app_id,
          'app_secret' => $fbk->api_secret,
          'default_graph_version' => $fbk->api_ver
         ]);
-        if ($type == 0) {
+        if ($type == 3) {
             $type = $fbk->default_post;
         }
         if (! $path = $this->fb_path($type)) {
@@ -158,6 +171,9 @@ use Facebook\Facebook;
     {
         if ($post_id) {
             $fbk = ApiSettings::find()->where(['type' => 'facebook'])->one();
+            if (! $check = $this->checkapis($fbk, 'fb')) {
+                return $check;
+            }
             $fb = new Facebook([
              'app_id' => $fbk->app_id,
              'app_secret' => $fbk->api_secret,
@@ -180,7 +196,10 @@ use Facebook\Facebook;
     function tg_post(array $content, $type)
     {
         $tg = ApiSettings::find()->where(['type' => 'telegram'])->one();
-        if ($type == 0) {
+        if (! $check = $this->checkapis($tg, 'tg')) {
+            return $check;
+        }
+        if ($type == 3) {
             $type = $tg->default_post;
         }
         $path = $this->tg_path($type);
@@ -198,6 +217,9 @@ use Facebook\Facebook;
     {
         if ($post_id) {
             $tg = ApiSettings::find()->where(['type' => 'telegram'])->one();
+            if (! $check = $this->checkapis($tg, 'tg')) {
+                return $check;
+            }
             $post_fields['message_id'] = $post_id;
             $path = 'deleteMessage';
             $path.= "?chat_id=".$tg->channel_id;
@@ -236,13 +258,13 @@ use Facebook\Facebook;
     function tw_post(array $content, $type) {
         require_once(__DIR__.'/../../../jublonet/codebird-php/src/codebird.php');
         $tw = ApiSettings::find()->where(['type' => 'twitter'])->one();
-        if (! $tw) {
-            return FALSE;
+        if (! $check = $this->checkapis($tw, 'tw')) {
+            return $check;
         }
         $attach = FALSE;
         $text = $nl = '';
 
-        if ($type == 0) {
+        if ($type == 3) {
             $type = $tw->default_post;
         }
         if (isset($content['title'])) {
@@ -296,8 +318,8 @@ use Facebook\Facebook;
     function tw_delete($post_id){
         require_once(__DIR__.'/../../../jublonet/codebird-php/src/codebird.php');
         $tw = ApiSettings::find()->where(['type' => 'twitter'])->one();
-        if (! $tw) {
-            return FALSE;
+        if (! $check = $this->checkapis($tw, 'tw')) {
+            return $check;
         }
         try {
             \Codebird\Codebird::setConsumerKey($tw->api_key, $tw->api_secret);
@@ -312,6 +334,29 @@ use Facebook\Facebook;
             return FALSE;
         }
         return $reply;
+    }
+
+    private function checkapis($api, $type)
+    {
+        if ($type == 'fb') {
+            if (! $api->app_id || ! $api->api_secret || ! $api->api_ver) {
+                Yii::$app->session->setFlash('fb_api_error', "<br>Facebook API ma'lumotlari mavjud emas");
+                return FALSE;
+            }
+        }
+        elseif ($type == 'tg') {
+            if (! $api->bot_token || ! $api->channel_id) {
+                Yii::$app->session->setFlash('tg_api_error', "<br>Telegram API ma'lumotlari mavjud emas");
+                return FALSE;
+            }
+        }
+        elseif ($type == 'tw') {
+            if (! $api->api_key || ! $api->api_secret || ! $api->access_token || ! $api->token_secret) {
+                Yii::$app->session->setFlash('tw_api_error', "<br>Twitter API ma'lumotlari mavjud emas");
+                return FALSE;
+            }
+        }
+        return TRUE;
     }
 
     private function fb_content(array $content, $type, $bottomtext)

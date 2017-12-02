@@ -51,9 +51,9 @@ CREATE TABLE `api_settings` (
 --
 
 INSERT INTO `api_settings` (`id`, `type`, `default_post`, `bottom_text`, `bot_token`, `channel_id`, `app_id`, `page_id`, `api_key`, `api_secret`, `api_ver`, `access_token`, `token_secret`, `updated_at`, `status`) VALUES
-(1, 'telegram', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(2, 'facebook', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1),
-(3, 'twitter', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1);
+(1, 'telegram', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(2, 'facebook', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0),
+(3, 'twitter', 2, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0);
 
 
 --

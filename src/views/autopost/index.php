@@ -71,7 +71,7 @@ use yii\helpers\Html;
                         <div class="form-group">
                             <div class="radio">
                                 <label>
-                                    <input type="radio" name="posttype" id="radioDefault" value="" <?=(! isset($data))?'checked':''?>>
+                                    <input type="radio" name="posttype" id="radioDefault" value="default" <?=(! isset($data))?'checked':''?>>
                                     Sozlamadagi bo'yicha
                                 </label>
                             </div>
