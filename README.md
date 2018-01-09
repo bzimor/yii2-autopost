@@ -28,3 +28,7 @@ Usage
 Once the extension is installed, simply write `http://<<YOUR-SITE>>/autopost` on adressbar and press enter.
 
 
+
+Here is a full documentation in [uzbek](http://yii2-autopost.readthedocs.io/uz/latest/index.html) (other languages will be added later)
+
+
